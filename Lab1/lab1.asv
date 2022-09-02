@@ -1,0 +1,23 @@
+clear all;
+
+V = 10;
+maxBits = 15;
+Fs = 50;
+Ts = 1;
+
+bitCount = randi([1 maxBits], [1 1]);
+y = [];
+
+for i=1:1:bitCount
+    s = randi([0 1], [1 1]);
+    y = [y s];
+end
+
+noise = [];
+
+for i=0.0001:0.0001:
+
+result = getSenderBits(y, Fs, V);
+
+disp(y);
+disp(result);
