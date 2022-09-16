@@ -1,8 +1,8 @@
 clear all;
 
 V = 0.4;
-minBits = 1000;
-maxBits = 2000;
+minBits = 20000;
+maxBits = 50000;
 Fs = 50;
 Ts = 1;
 
@@ -10,7 +10,7 @@ bitCount = randi([minBits maxBits], [1 1]);
 y = zeros([1 10000]);
 
 % generate random sender bits
-for i=1:1:50000
+for i=1:1:bitCount
     s = randi([0 1], [1 1]);
     y(i) = s;
 end

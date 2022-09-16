@@ -11,7 +11,7 @@ h = [ones(1,Fs)];
 r=conv(y,h)/Fs;
 fim = length(r);
 t = 0:1/Fs:fim/Fs-1/Fs;
-plot(t,r);
+% plot(t,r);
 t_amostra = [Fs Fs*2 Fs*3 Fs*4 Fs*5];
 r_amostra = r(t_amostra);
 
@@ -22,11 +22,11 @@ r_ruido = conv(y_r,h)/Fs;
 r_r_amostra = r_ruido(t_amostra);
 
 t_amostra = t_amostra/Fs-1/Fs;
-hold
-stem(t_amostra, r_amostra, 'r');
-xlabel('tempo(s)');
-legend('Saída do Filtro', 'Saída Amostrada');
-axis([0 5 -2 2]);
+% hold
+% stem(t_amostra, r_amostra, 'r');
+% xlabel('tempo(s)');
+% legend('Saída do Filtro', 'Saída Amostrada');
+% axis([0 5 -2 2]);
 
 
 hold 
@@ -35,7 +35,7 @@ hold
 stem(t_amostra, r_r_amostra, 'g');
 title('Sinal filtrado com ruido');
 xlabel('tempo(s)');
-legend('Saída do Filtro', 'Saída Amostrada rola');
+legend('Saída do Filtro', 'Saída Amostrada');
 axis([0 5 -2 2]);
 % figure
 % plot(t,y)

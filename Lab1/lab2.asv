@@ -2,9 +2,7 @@ Fs = 50;
 Ts = 1;
 V = 1;
 
-% numero aleatorios de bits enviados
-% arrumar uma forma interpretar qual bit estah sendo enviado
-% tentar variar pra M-PAM
+% fazer com que os numeros enviados sejam 
 
 bit1 = V*ones(1,Fs);
 bit0 = -V*ones(1,Fs);
