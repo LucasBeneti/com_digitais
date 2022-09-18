@@ -27,8 +27,7 @@ berValues = zeros([m n]);
 
 for i= 1:length(x_axis)
     result = getSenderBits(y, Fs, x_axis(i));
-    currBER= getBER(y,result);
-    berValues(i) = currBER;
+    berValues(i) = getBER(y,result);
 end
 %disp(berValues);
 figure;
