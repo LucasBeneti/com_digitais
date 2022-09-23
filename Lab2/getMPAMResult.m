@@ -26,38 +26,37 @@ function [result] = getMPAMResult(in, fs, v)
      result = zeros(1,bitCount);
      r_amostra = zeros(1,bitCount);
      for it = 1:bitCount % debuggar essa parte do decisor 
-         sample_value = r(i*fs);
-         r_amostra(i) = r(i*fs);
-         if (sample_value > v)
-             result(i) = 2;
-         elseif (sample_value > 0 && sample_value <= v)
-             result(i) = 3;
-         elseif (sample_value <= 0 && sample_value >= -v)
-             result(i) = 1;
-         elseif (sample_value < -v)
-             result(i) = 0;
+         sample_value = r(it*fs);
+         r_amostra(it) = r(it*fs);
+         if (sample_value > 2*v)
+             result(it) = 2;
+         elseif (sample_value > 0 && sample_value <= 2*v)
+             result(it) = 3;
+         elseif (sample_value <= 0 && sample_value >= -2*v)
+             result(it) = 1;
+         elseif (sample_value < -2*v)
+             result(it) = 0;
          end
      
      end
 
-      t = 1:(length(in)*fs); % plot for testing
-      figure;
-      subplot(2,1,1);
-      plot(t,s);
-      subplot(2,1,2);
-      plot(t,sr);
-      
-      
-      fim2 = length(r);
-      figure;
-      t = 0:1/fs:fim2/fs-1/fs;
-      plot(t, r);
-      xticks(1:length(in));
-      hold
-      t_amostra = 1:length(in);
-      stem(t_amostra, r_amostra);      
-      xlim([0 fs*length(in)]);
-      ylim([-4 4])
-      disp(restul);
+%       t = 1:(length(in)*fs); % plot for testing
+%       figure;
+%       subplot(2,1,1);
+%       plot(t,s);
+%       subplot(2,1,2);
+%       plot(t,sr);    
+%       
+%       fim2 = length(r);
+%       figure;
+%       t = 0:1/fs:fim2/fs-1/fs;
+%       plot(t, r);
+%       xticks(1:length(in));
+%       hold
+%       t_amostra = 1:length(in);
+%       stem(t_amostra, r_amostra);      
+%       xlim([0 fs*length(in)]);
+%       ylim([-4 4])
+%       disp(restul);
     
 end
