@@ -1,20 +1,3 @@
-%{
-Params:
-    - in: sender bits sequence (array 1 x N)
-    - fs: quantity of points per symbol
-    - V: amplitude of the sender
-
-Returns:
-    - result: array 1 x N with the interpreted result
-
-TODO:
-    - add AWGN noise to the sender message
-    - do the convolution with the h (pulse function frequency response)
-    - according to the received array size and symbol period, 
-    fetch the right sample moment
-    - the decision will be made based on the value. If the value at the moment
-    is greater than zero, bit 1 was sent, otherwise, bit 0 was sent.
-%}
 function [ result ] = getResult(in, fs, V)
     bitCount = length(in);
     s = [];
