@@ -1,6 +1,6 @@
 % function to get the interpreted value from the sender
 % refatorar essa funcao pra fazer o decisor seguindo esquema da conv
-function [ result ] = getSenderBits(in, fs, V)
+function [ result ] = getReceivedBits(in, fs, V)
     bitCount = length(in);
     s = [];
     for i=1:1:length(in)
