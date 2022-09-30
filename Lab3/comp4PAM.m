@@ -21,7 +21,7 @@ clear all;
 rand('state',0);
 randn('state',0);
 
-bits=1e6; %Número de bits a serem simulados.
+bits=1e5; %Número de bits a serem simulados.
 M=4; %2-PAM, dois símbolos possíveis na modulação.
 
 % tem que arrumar a sequencia randomica de bits
@@ -49,12 +49,12 @@ for i = 1:length(snr_vary)
     v = sqrt(Es/5);% getting the current voltage amplitude
 
     [symbol_sequence, sending_signal]= generate4PAMSequence(bits, v);
-    y = sqrt(Es)*sending_signal+n; %A amplitude dos símbolos transmitidos é alterada de modo que a energia média seja Es, e consequentemente Eb seja aquela desejada.
+    y = sending_signal+n; %A amplitude dos símbolos transmitidos é alterada de modo que a energia média seja Es, e consequentemente Eb seja aquela desejada.
     
-    b_est = get4PAMDecision(sending_signal, v);
+    b_est = get4PAMDecision(y, v);
     erros = sum(symbol_sequence~=b_est); %Contagem de erros.
     ber_values(i) = erros/bits; %Cálculo da BER.
-    pb_values(i) = qfunc(sqrt(2*EbN0)); %BER teórica. <- a pira eh mostrar que o resultado do qfunc é o mesmo do BER
+    pb_values(i) = (3/2)*qfunc(sqrt((4/5)*EbN0)); %BER teórica atualizada pro caso de 4-PAM
 end
 
 % nao esta dando nenhum erro na transmissao por algum motivo...amplitude

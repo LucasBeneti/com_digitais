@@ -2,7 +2,6 @@ function [symbolSequence, sendingSignal] = generate4PAMSequence(symbolCount, v)
     possibleSymbols = 0:3;
     symbolSequence = zeros(1, symbolCount);
     sendingSignal = zeros(1, symbolCount);
-
     for i = 1:symbolCount
         temp_val = possibleSymbols(randi(4,1));
         symbolSequence(i) = temp_val;
